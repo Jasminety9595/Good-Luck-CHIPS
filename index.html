@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Fortune Petition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'cinnabar': '#E34234', // Zhu-sha Red
+              'traditional-red': '#8E0000',
+              'deep-maroon': '#500000',
+              'paper-yellow': '#FDF5E6',
+              'gold-accent': '#FFD700',
+            },
+            fontFamily: {
+              serif: ['"DotGothic16"', 'sans-serif'],
+              artistic: ['"DotGothic16"', 'sans-serif'],
+            },
+            animation: {
+              'shake-fast': 'shake-tilt 0.15s infinite',
+              'shake-pour': 'shake-pour 0.1s infinite',
+              'shake-violent': 'shake-violent 0.05s infinite',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'drop-in': 'dropIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+              'bounce-in': 'bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+              'float': 'float 3s ease-in-out infinite',
+              'flash-red': 'flashRed 0.2s infinite',
+              'gold-burst': 'goldBurst 1.5s ease-out forwards',
+            },
+            keyframes: {
+              'shake-tilt': {
+                '0%, 100%': { transform: 'rotate(-12deg)' },
+                '50%': { transform: 'rotate(12deg)' },
+              },
+              'shake-pour': {
+                 '0%': { transform: 'rotate(-135deg) translate(2px, 2px)' },
+                 '25%': { transform: 'rotate(-135deg) translate(-2px, -2px)' },
+                 '50%': { transform: 'rotate(-135deg) translate(-2px, 2px)' },
+                 '75%': { transform: 'rotate(-135deg) translate(2px, -2px)' },
+                 '100%': { transform: 'rotate(-135deg) translate(0, 0)' },
+              },
+              'shake-violent': {
+                '0%': { transform: 'translate(1px, 1px) rotate(0deg)' },
+                '10%': { transform: 'translate(-1px, -2px) rotate(-1deg)' },
+                '20%': { transform: 'translate(-3px, 0px) rotate(1deg)' },
+                '30%': { transform: 'translate(3px, 2px) rotate(0deg)' },
+                '40%': { transform: 'translate(1px, -1px) rotate(1deg)' },
+                '50%': { transform: 'translate(-1px, 2px) rotate(-1deg)' },
+                '60%': { transform: 'translate(-3px, 1px) rotate(0deg)' },
+                '70%': { transform: 'translate(3px, 1px) rotate(-1deg)' },
+                '80%': { transform: 'translate(-1px, -1px) rotate(1deg)' },
+                '90%': { transform: 'translate(1px, 2px) rotate(0deg)' },
+                '100%': { transform: 'translate(1px, -2px) rotate(-1deg)' },
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0) rotate(-10deg)' },
+                '50%': { transform: 'translateY(-10px) rotate(-5deg)' },
+              },
+              'dropIn': {
+                '0%': { transform: 'translateY(-150%) rotate(0deg)', opacity: '0' },
+                '100%': { transform: 'translateY(0) rotate(-10deg)', opacity: '1' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              bounceIn: {
+                 '0%': { opacity: '0', transform: 'scale(0.3) translate(-50%, -50%)' },
+                 '50%': { opacity: '1', transform: 'scale(1.05) translate(-50%, -50%)' },
+                 '70%': { transform: 'scale(0.9) translate(-50%, -50%)' },
+                 '100%': { transform: 'scale(1) translate(-50%, -50%)' },
+              },
+              flashRed: {
+                '0%, 100%': { backgroundColor: 'transparent' },
+                '50%': { backgroundColor: 'rgba(255, 0, 0, 0.3)' },
+              },
+              goldBurst: {
+                '0%': { transform: 'scale(0)', opacity: '0' },
+                '50%': { opacity: '1' },
+                '100%': { transform: 'scale(20)', opacity: '0' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        overscroll-behavior: none;
+        background-color: #8E0000;
+        font-family: "DotGothic16", sans-serif;
+      }
+      .crimped-edge {
+        background-image: linear-gradient(135deg, transparent 5px, #E34234 5px), linear-gradient(45deg, transparent 5px, #E34234 5px);
+        background-size: 10px 10px;
+        background-repeat: repeat-x;
+        background-position: bottom;
+      }
+      .clip-fries-back {
+        clip-path: polygon(10% 0, 90% 0, 80% 100%, 20% 100%);
+      }
+      .clip-fries-front {
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%, 50% 90%);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
